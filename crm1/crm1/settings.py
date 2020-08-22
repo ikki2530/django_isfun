@@ -120,3 +120,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+# Where are we looking ofr images or videos
+MEDIA_URL = '/images/'
+
+# This setting defines the additional locations the staticfiles app will traverse if the FileSystemFinder finder is enabled,
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
