@@ -1,10 +1,14 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Customer(models.Model):
+    # Acustomer can have one user, and a user can have one customer, blank means it not must be associated to a user
+    user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     phone= models.CharField(max_length=200)
     email= models.CharField(max_length=200)
+    profile_pic = models.ImageField(default="profile.jpeg",null=True, blank=True) # add pillow library,
     date_created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):

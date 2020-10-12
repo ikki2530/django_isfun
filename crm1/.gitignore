@@ -1,0 +1,11 @@
+# Byte-compiled / optimized / DLL files
+accounts/__pycache__
+accounts/migrations/__pycache__
+crm1/__pycache__
+
+# Django stuff
+*.log
+db.sqlite3
+
+# media
+static/images/*
