@@ -1,0 +1,7 @@
+# Byte-compiled / optimized / DLL files
+bot_api/__pycache__/
+bot_api/migrations/__pycache__/
+outbot/__pycache__/
+# Django stuff:
+*.log
+db.sqlite3
