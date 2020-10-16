@@ -1,0 +1,26 @@
+version: '3.8'
+# env_file pass multiple environment variables from an external file through to a service’s containers
+# build: Configuration options that are applied at build time
+# volumnes: Mount host paths or named volumes, specified as sub-options to a service.
+services:
+  web:
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/usr/src/app/
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+
+  db:
+    image: postgres:12.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=hello_django_dev
+
+volumes:
+  postgres_data:
